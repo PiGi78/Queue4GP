@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <description>$description$</description>
+    <license type="expression">MIT</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>First release of the library</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>RabbitMQ queue message broker</tags>
+    <dependencies>
+      <dependency id="RabbitMQ.Client" version="5.1.0" />
+      <dependency id="Newtonsoft.Json" version="12.0.1" />
+      <dependency id="Microsoft.Extensions.Options" version="2.2.0" />
+    </dependencies>
+  </metadata>
+</package>
