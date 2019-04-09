@@ -120,5 +120,5 @@ Explain what these tests test and why
 ## Built With
 
 * [RabbitMQ.Client](https://www.rabbitmq.com/dotnet-api-guide.html) - Used for comunication with the RabbitMQ server
-* [Jon.NET (Newtonsoft)](https://www.newtonsoft.com/json) - Used to serialize/deserialize objects to send to the queue
+* [Jon.NET (Newtonsoft)](https://www.newtonsoft.com/json) - Used to serialize/deserialize queue messages
 
