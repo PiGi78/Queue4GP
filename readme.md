@@ -120,6 +120,103 @@ The library can be used in a console application. In this sample you can see how
 
 ### ASP.NET Core
 
+The library can be used on ASP.NET core also.
+You simply need to set the connection info on the appsettings.json file:
+
+```
+  "Queue4GP": {
+    "Host": "localhost",
+    "Port": 5672,
+    "User": "guest",
+    "Password":  "guest"
+  }
+```
+
+Then you have to register this configuration on the standard IOC:
+
+```
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // Configure the queue settings
+            services.Configure<QueueConfiguration>(options => Configuration.GetSection("Queue4GP").Bind(options));
+        }
+```
+
+Finally, in the controller you want to send the message, you need to:
+- Add the IOption<QueueConfiguration> for read the configuration from the appsettings.json file
+- Create the publisher
+- Send the message
+
+In this example you can see how to send a MyMessage to the queue:
+
+```
+    [Route("api/[controller]")]
+    [ApiController]
+    public class QueueController : ControllerBase
+    {
+
+        public QueueController(IOptions<QueueConfiguration> config)
+        {
+            QueueConfiguration = config.Value;
+        }
+
+
+        private QueueConfiguration QueueConfiguration { get; }
+
+
+        // GET api/values
+        [HttpGet("SendMessage")]
+        public ActionResult SendMessage([FromQuery]string message)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if (string.IsNullOrEmpty(message)) return BadRequest("message is mandatory");
+
+            using (var publisher = new MyPublisher(QueueConfiguration))
+            {
+                var msg = new MyMessage
+                {
+                    MessageId = Guid.NewGuid().ToString(),
+                    Text = message
+                };
+                publisher.Send(msg);
+            }
+
+            return Ok();
+        }
+    }
+
+
+    /// <summary>
+    /// Publisher: sends messages to the queue
+    /// </summary>
+    class MyPublisher : QueuePublisher<MyMessage>
+    {
+        public MyPublisher(QueueConfiguration configuration) : base(configuration)
+        {
+        }
+    }
+
+
+    /// <summary>
+    /// Message to send/receive
+    /// </summary>
+    class MyMessage : IQueueMessage
+    {
+
+        /// <summary>
+        /// Message id
+        /// </summary>
+        public string MessageId { get; set; }
+
+        /// <summary>
+        /// Message text
+        /// </summary>
+        public string Text { get; set; }
+    }
+```
 
 
 
