@@ -55,7 +55,7 @@ namespace Queue4GP.RabbitMQ
             {
                 ExchangeInfo = RabbitHelper.CreateExchange(Configuration);
             }
-            var routingKey = typeof(TMessage).Name;
+            var routingKey = typeof(TMessage).FullName;
             IBasicProperties props = ExchangeInfo.Channel.CreateBasicProperties();
             props.ContentEncoding = "UTF-8";
             props.ContentType = "application/json";

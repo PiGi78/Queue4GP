@@ -65,7 +65,9 @@ namespace Queue4GP.RabbitMQ
 
         #endregion
 
-
+        /// <summary>
+        /// Handler of the queue
+        /// </summary>
         public IQueueHandler<TMessage> QueueHandler { get; }
 
         /// <summary>
@@ -82,7 +84,7 @@ namespace Queue4GP.RabbitMQ
                 // Coda
                 ExchangeInfo.Channel.QueueDeclare(queue: queueName, durable: true, exclusive: false, autoDelete: false);
                 // Routing key
-                var routingKey = typeof(TMessage).Name;
+                var routingKey = typeof(TMessage).FullName;
                 // Binding
                 ExchangeInfo.Channel.QueueBind(queueName, ExchangeInfo.ExchangeName, routingKey);
             };

@@ -29,7 +29,9 @@ This command will install a new docker container named my-rabbit that uses the f
 
 ## Use the library
 
-Explain what these tests test and why
+### Console application
+
+The library can be used in a console application. In this sample you can see how much easy is to use the library.
 
 ```
     class Program
@@ -115,6 +117,10 @@ Explain what these tests test and why
         }
     }
 ```
+
+### ASP.NET Core
+
+
 
 
 ## Built With
