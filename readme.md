@@ -218,6 +218,32 @@ In this example you can see how to send a MyMessage to the queue:
     }
 ```
 
+### Time To Live
+
+Sometimes a message has to be delivered in a certain amount of time or could be not delivered.
+This amount of time is usually called Time To Live (TTL).
+
+If you want to define a TTL for the message, you can simply pass it to the Send method:
+
+```
+
+            using (var publisher = new MyPublisher(QueueConfiguration))
+            {
+                var msg = new MyMessage
+                {
+                    MessageId = Guid.NewGuid().ToString(),
+                    Text = message
+                };
+                /* 
+                 * The message will stay in the queue for 5 seconds. 
+                 * If noone listens for it in 5 seconds, nobody will receive the message
+                 */
+                long ttl = 5000L;
+
+                publisher.Send(msg, ttl);
+            }
+
+```
 
 
 ## Built With
