@@ -9,16 +9,19 @@
     <description>$description$</description>
     <summary>$description$</summary>
     <projectUrl>https://github.com/PiGi78/Queue4GP</projectUrl>
-    <iconUrl>https://github.com/PiGi78/Queue4GP/blob/master/Queue4GP.RabbitMQ/Icon.png</iconUrl>
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>First release of the library</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>RabbitMQ queue</tags>
+    <icon>Icon.png</icon>
     <dependencies>
-      <dependency id="RabbitMQ.Client" version="5.1.1" />
-      <dependency id="Newtonsoft.Json" version="12.0.2" />
-      <dependency id="Microsoft.Extensions.Options" version="2.2.0" />
+        <dependency id="RabbitMQ.Client" version="5.1.1" />
+        <dependency id="Newtonsoft.Json" version="12.0.2" />
+        <dependency id="Microsoft.Extensions.Options" version="2.2.0" />
     </dependencies>
   </metadata>
+    <files>
+      <file src="Icon.png" target="" />
+    </files>
 </package>
