@@ -16,8 +16,8 @@
     <copyright>Copyright 2019</copyright>
     <tags>RabbitMQ queue</tags>
     <dependencies>
-      <dependency id="RabbitMQ.Client" version="5.1.0" />
-      <dependency id="Newtonsoft.Json" version="12.0.1" />
+      <dependency id="RabbitMQ.Client" version="5.1.1" />
+      <dependency id="Newtonsoft.Json" version="12.0.2" />
       <dependency id="Microsoft.Extensions.Options" version="2.2.0" />
     </dependencies>
   </metadata>
