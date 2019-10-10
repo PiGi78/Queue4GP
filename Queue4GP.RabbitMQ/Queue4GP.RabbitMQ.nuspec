@@ -6,7 +6,7 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <description>$description$. It is the first release of the library and not yet used in production. So if you will use it in production, use it at your own risk (and let me know if it works or not, so I can fix the problem as soon as I can)</description>
+    <description>$description$</description>
     <summary>$description$</summary>
     <projectUrl>https://github.com/PiGi78/Queue4GP</projectUrl>
     <iconUrl>https://github.com/PiGi78/Queue4GP/blob/master/Queue4GP.RabbitMQ/Icon.png</iconUrl>
